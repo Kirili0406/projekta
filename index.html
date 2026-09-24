@@ -192,7 +192,7 @@
 
       loginError.textContent =
         messages[error.code] ||
-        Не удалось войти. Код ошибки: ${error.code || "неизвестен"};
+        `Не удалось войти. Код ошибки: ${error.code || "неизвестен"}`;
 
       loginButton.disabled = false;
       loginButton.textContent = "Войти";

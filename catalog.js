@@ -1,11 +1,11 @@
 // ============================================================
 //  catalog.js — каталог услуг (index.html)
 // ============================================================
-import { db } from "./firebase-config.js";
+import { db } from "firebase-config.js";
 import {
   collection, query, where, orderBy, limit, onSnapshot
 } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
-import { fmtPrice, starString, debounce, escapeHtml } from "./ui.js";
+import { fmtPrice, starString, debounce, escapeHtml } from "ui.js";
 
 const PAGE_SIZE = 9;
 

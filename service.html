@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Услуга — БЛИК</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app-header">
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="brand"><span class="drop"></span>БЛИК</a>
+      <div class="nav-links">
+        <a href="index.html">Каталог услуг</a>
+        <a href="bookings.html">Мои записи</a>
+        <a href="profile.html">Личный кабинет</a>
+      </div>
+      <div class="nav-auth"><a class="btn btn-ghost btn-sm" href="profile.html">Войти</a></div>
+    </nav>
+  </header>
+</div>
+
+<main class="container" id="detail-root">
+  <section class="detail">
+    <div>
+      <div class="detail-media" style="display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:3rem;color:rgba(255,255,255,.35);" id="s-media-letter"></div>
+      <span class="badge" id="s-badge"></span>
+      <h1 id="s-name">Загрузка…</h1>
+      <p id="s-rating"></p>
+      <p id="s-desc"></p>
+
+      <section style="margin-top:36px;">
+        <h3>Отзывы</h3>
+        <form id="review-form" style="margin-bottom:22px;">
+          <div class="form-grid">
+            <div class="field">
+              <label>Оценка</label>
+              <select id="review-rating">
+                <option value="5">★★★★★ — отлично</option>
+                <option value="4">★★★★☆ — хорошо</option>
+                <option value="3">★★★☆☆ — нормально</option>
+                <option value="2">★★☆☆☆ — так себе</option>
+                <option value="1">★☆☆☆☆ — плохо</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label>Комментарий</label>
+              <textarea id="review-text" rows="2" placeholder="Как всё прошло?" required></textarea>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit">Оставить отзыв</button>
+        </form>
+        <div id="reviews-list"></div>
+        <div class="center-row"><button class="btn btn-ghost btn-sm hidden" id="btn-more-reviews">Показать ещё отзывы</button></div>
+      </section>
+
+      <section style="margin-top:36px;">
+        <h3>Похожие услуги</h3>
+        <div class="grid" id="related-grid"></div>
+      </section>
+    </div>
+
+    <aside class="booking-box">
+      <h3>Записаться</h3>
+      <div class="field"><span class="price" id="s-price"></span> <span class="muted" id="s-duration"></span></div>
+
+      <div class="field">
+        <label>Ваша машина</label>
+        <select id="car-select"></select>
+      </div>
+      <div class="field">
+        <label>Дата</label>
+        <input type="date" id="date-input">
+      </div>
+      <div class="field">
+        <label>Свободное время (обновляется в реальном времени)</label>
+        <div class="slot-grid" id="slot-grid"></div>
+      </div>
+      <button class="btn btn-primary btn-block" id="btn-add-booking">Добавить в запись</button>
+      <p class="muted" style="font-size:.82rem;margin-top:10px;">Запись попадёт в «Мои записи», где нужно будет её подтвердить.</p>
+    </aside>
+  </section>
+</main>
+
+<footer class="site-footer"><div class="container">БЛИК · учебный проект</div></footer>
+
+<script type="module">
+  import { initHeader } from "header.js";
+  import { initServicePage } from "service.js";
+  import { initReveal } from "reveal.js";
+  initHeader();
+  initServicePage();
+  initReveal();
+</script>
+</body>
+</html>

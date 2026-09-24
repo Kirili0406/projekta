@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мои записи — БЛИК</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app-header">
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="brand"><span class="drop"></span>БЛИК</a>
+      <div class="nav-links">
+        <a href="index.html">Каталог услуг</a>
+        <a href="bookings.html">Мои записи</a>
+        <a href="profile.html">Личный кабинет</a>
+      </div>
+      <div class="nav-auth"><a class="btn btn-ghost btn-sm" href="profile.html">Войти</a></div>
+    </nav>
+  </header>
+</div>
+
+<main class="container" style="padding:40px 0;">
+  <div class="section-head" data-reveal>
+    <h1 style="margin-bottom:0;">Мои записи</h1>
+    <span class="muted" id="cart-total"></span>
+  </div>
+  <p>Здесь собраны черновики, подтверждённые и текущие записи. Готовые и отменённые записи переезжают в историю на странице «Личный кабинет».</p>
+
+  <div class="center-row" style="justify-content:flex-start; margin:0 0 20px;">
+    <button class="btn btn-wax hidden" id="btn-confirm-all">Подтвердить все черновики</button>
+  </div>
+
+  <div id="bookings-list"></div>
+</main>
+
+<footer class="site-footer"><div class="container">БЛИК · учебный проект</div></footer>
+
+<script type="module">
+  import { initHeader } from "header.js";
+  import { initBookingsPage } from "booking.js";
+  import { initReveal } from "reveal.js";
+  initHeader();
+  initBookingsPage();
+  initReveal();
+</script>
+</body>
+</html>

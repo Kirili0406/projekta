@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Регистрация — БЛИК</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app-header">
+    <header class="site-header"><nav class="nav">
+      <a href="index.html" class="brand"><span class="drop"></span>БЛИК</a>
+      <div class="nav-links"><a href="index.html">Каталог услуг</a><a href="bookings.html">Мои записи</a><a href="profile.html">Личный кабинет</a></div>
+      <div class="nav-auth"><a class="btn btn-ghost btn-sm" href="register.html">Регистрация</a><a class="btn btn-primary btn-sm" href="profile.html">Войти</a></div>
+    </nav></header>
+  </div>
+  <main class="container" style="max-width:620px;padding-top:56px;padding-bottom:72px">
+    <section class="panel" style="padding:clamp(22px,5vw,40px)">
+      <p class="hero-eyebrow">Добро пожаловать в БЛИК</p>
+      <h1 style="margin-top:0">Создать аккаунт</h1>
+      <p class="muted">Зарегистрируйтесь, чтобы записываться на услуги и управлять своими визитами.</p>
+      <form id="register-form-page">
+        <div class="field"><label for="register-name">Имя</label><input id="register-name" type="text" autocomplete="name" required maxlength="80" placeholder="Ваше имя"></div>
+        <div class="field"><label for="register-email">Email</label><input id="register-email" type="email" autocomplete="email" required placeholder="name@example.com"></div>
+        <div class="field"><label for="register-phone">Телефон</label><input id="register-phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></div>
+        <div class="field"><label for="register-password">Пароль (не менее 6 символов)</label><input id="register-password" type="password" autocomplete="new-password" minlength="6" required placeholder="Придумайте пароль"></div>
+        <div class="field"><label for="register-password-repeat">Повторите пароль</label><input id="register-password-repeat" type="password" autocomplete="new-password" minlength="6" required placeholder="Повторите пароль"></div>
+        <p class="form-error" id="register-page-error" role="alert"></p>
+        <button class="btn btn-primary btn-block" id="register-submit" type="submit">Зарегистрироваться</button>
+      </form>
+      <p style="margin-top:20px">Уже есть аккаунт? <a href="profile.html" id="go-login">Войти</a></p>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container">БЛИК · Firebase Authentication + Firestore</div></footer>
+  <script type="module" src="js/register.js"></script>
+</body>
+</html>

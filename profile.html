@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Личный кабинет — БЛИК</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="app-header">
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="brand"><span class="drop"></span>БЛИК</a>
+      <div class="nav-links">
+        <a href="index.html">Каталог услуг</a>
+        <a href="bookings.html">Мои записи</a>
+        <a href="profile.html">Личный кабинет</a>
+      </div>
+      <div class="nav-auth"><a class="btn btn-ghost btn-sm" href="profile.html">Войти</a></div>
+    </nav>
+  </header>
+</div>
+
+<main class="container" style="padding:40px 0;">
+  <h1 data-reveal>Личный кабинет</h1>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="tab-profile">Профиль</button>
+    <button class="tab-btn" data-tab="tab-cars">Мои машины</button>
+    <button class="tab-btn" data-tab="tab-history">История</button>
+    <button class="tab-btn" data-tab="tab-reviews">Мои отзывы</button>
+  </div>
+
+  <section class="tab-panel active" id="tab-profile">
+    <form id="profile-form" style="max-width:420px;">
+      <div class="field"><label>Имя</label><input type="text" id="p-name"></div>
+      <div class="field"><label>Телефон</label><input type="tel" id="p-phone" placeholder="+7 900 000-00-00"></div>
+      <div class="field"><label>Email</label><input type="email" id="p-email" disabled></div>
+      <button class="btn btn-primary" type="submit">Сохранить</button>
+    </form>
+  </section>
+
+  <section class="tab-panel" id="tab-cars">
+    <div id="cars-list" style="margin-bottom:26px;"></div>
+    <h3>Добавить машину</h3>
+    <form id="car-form" class="form-grid" style="max-width:560px;">
+      <div class="field"><label>Марка</label><input type="text" id="c-make" required></div>
+      <div class="field"><label>Модель</label><input type="text" id="c-model" required></div>
+      <div class="field"><label>Госномер</label><input type="text" id="c-plate" required></div>
+      <div class="field"><label>Год</label><input type="text" id="c-year"></div>
+      <div class="field full"><label>Цвет</label><input type="text" id="c-color"></div>
+      <div class="field full"><button class="btn btn-primary" type="submit">Добавить машину</button></div>
+    </form>
+  </section>
+
+  <section class="tab-panel" id="tab-history">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Дата и время</th><th>Услуга</th><th>Машина</th><th>Цена</th><th>Статус</th></tr></thead>
+        <tbody id="history-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="tab-panel" id="tab-reviews">
+    <div id="my-reviews-list"></div>
+  </section>
+</main>
+
+<footer class="site-footer"><div class="container">БЛИК · учебный проект</div></footer>
+
+<script type="module">
+  import { initHeader } from "./js/header.js";
+  import { initProfilePage } from "./js/profile.js";
+  import { initReveal } from "./js/reveal.js";
+  initHeader();
+  initProfilePage();
+  initReveal();
+</script>
+</body>
+</html>

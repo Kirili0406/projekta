@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>БЛИК — запись на автомойку онлайн</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app-header">
+  <!-- Резервная шапка: видна даже при открытии index.html напрямую без Firebase. -->
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="brand"><span class="drop"></span>БЛИК</a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Каталог услуг</a>
+        <a href="bookings.html">Мои записи</a>
+        <a href="profile.html">Личный кабинет</a>
+      </div>
+      <div class="nav-auth">
+        <a class="btn btn-ghost btn-sm" href="register.html">Регистрация</a>
+        <a class="btn btn-ghost btn-sm" href="profile.html">Войти</a>
+      </div>
+    </nav>
+  </header>
+</div>
+
+<main class="container">
+
+  <section class="hero">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+    <div data-reveal>
+      <p class="hero-eyebrow">Автомойка без очередей</p>
+      <h1>Запишите машину на мойку за <span>тридцать секунд</span></h1>
+      <p>Выберите услугу, свободное время и пост — мы подготовим бокс к вашему приезду. Статус записи обновляется в реальном времени.</p>
+      <div class="hero-actions">
+        <a href="#catalog" class="btn btn-primary">Выбрать услугу</a>
+        <a href="bookings.html" class="btn btn-ghost">Мои записи</a>
+      </div>
+    </div>
+    <div class="hero-panel" data-reveal>
+      <p class="hero-panel-title">Как это работает</p>
+      <div class="slot-row">
+        <div><div class="slot-time">1</div><div class="slot-bay">Выберите услугу и машину</div></div>
+        <span class="slot-tag">каталог</span>
+      </div>
+      <div class="slot-row">
+        <div><div class="slot-time">2</div><div class="slot-bay">Забронируйте свободный слот</div></div>
+        <span class="slot-tag">в реальном времени</span>
+      </div>
+      <div class="slot-row">
+        <div><div class="slot-time">3</div><div class="slot-bay">Приезжайте — статус мы обновим сами</div></div>
+        <span class="slot-tag">без ожидания</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="catalog">
+    <div class="section-head" data-reveal>
+      <h2>Каталог услуг</h2>
+      <span class="muted" id="catalog-count"></span>
+    </div>
+
+    <div class="controls" data-reveal>
+      <input type="search" id="search-input" placeholder="Поиск по названию или описанию…">
+      <select id="category-select">
+        <option value="">Все категории</option>
+        <option value="Мойка кузова">Мойка кузова</option>
+        <option value="Химчистка салона">Химчистка салона</option>
+        <option value="Полировка и защита">Полировка и защита</option>
+        <option value="Шины и диски">Шины и диски</option>
+        <option value="Комплекс">Комплексные пакеты</option>
+      </select>
+      <select id="sort-select">
+        <option value="createdAt_desc">Сначала новые</option>
+        <option value="price_asc">Сначала дешевле</option>
+        <option value="price_desc">Сначала дороже</option>
+        <option value="rating_desc">По рейтингу</option>
+      </select>
+    </div>
+
+    <div class="grid" id="catalog-grid">
+  <!-- Демонстрационные карточки. Firebase заменит их своими данными после подключения. -->
+  <a class="card" href="service.html">
+    <div class="card-media">М</div>
+    <div class="card-body">
+      <span class="card-cat">Мойка кузова</span>
+      <span class="card-title">Экспресс-мойка</span>
+      <p class="card-desc">Быстрая мойка кузова с шампунем и сушкой.</p>
+      <div class="card-foot"><span class="price">2 500 ₽ <small>· 30 мин</small></span><span class="rating">★★★★★</span></div>
+    </div>
+  </a>
+  <a class="card" href="service.html">
+    <div class="card-media">Х</div>
+    <div class="card-body">
+      <span class="card-cat">Химчистка салона</span>
+      <span class="card-title">Химчистка салона</span>
+      <p class="card-desc">Глубокая очистка сидений, ковров и пластиковых элементов.</p>
+      <div class="card-foot"><span class="price">7 500 ₽ <small>· 120 мин</small></span><span class="rating">★★★★★</span></div>
+    </div>
+  </a>
+  <a class="card" href="service.html">
+    <div class="card-media">П</div>
+    <div class="card-body">
+      <span class="card-cat">Полировка и защита</span>
+      <span class="card-title">Полировка кузова</span>
+      <p class="card-desc">Восстановление блеска кузова и защита лакокрасочного покрытия.</p>
+      <div class="card-foot"><span class="price">9 900 ₽ <small>· 180 мин</small></span><span class="rating">★★★★★</span></div>
+    </div>
+  </a>
+  <a class="card" href="service.html">
+    <div class="card-media">К</div>
+    <div class="card-body">
+      <span class="card-cat">Комплекс</span>
+      <span class="card-title">Полный комплекс</span>
+      <p class="card-desc">Кузов, салон, стекла и финальная защита автомобиля.</p>
+      <div class="card-foot"><span class="price">12 500 ₽ <small>· 180 мин</small></span><span class="rating">★★★★★</span></div>
+    </div>
+  </a>
+</div>
+    <div class="empty-state hidden" id="catalog-empty">
+      Пока нет услуг по этому запросу. Загляните позже или измените фильтры.
+    </div>
+    <div class="center-row">
+      <button class="btn btn-ghost hidden" id="btn-more">Показать ещё</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">БЛИК · учебный проект «Веб-приложение с облачной базой данных» · Firebase Firestore + Authentication</div>
+</footer>
+
+<script type="module">
+  import { initHeader } from "header.js";
+  import { initCatalog } from "catalog.js";
+  import { initReveal } from "reveal.js";
+  initHeader();
+  initCatalog();
+  initReveal();
+</script>
+</body>
+</html>

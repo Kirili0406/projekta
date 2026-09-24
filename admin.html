@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Админ-панель — БЛИК</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="app-header">
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="brand"><span class="drop"></span>БЛИК</a>
+      <div class="nav-links">
+        <a href="index.html">Каталог услуг</a>
+        <a href="bookings.html">Мои записи</a>
+        <a href="profile.html">Личный кабинет</a>
+      </div>
+      <div class="nav-auth"><a class="btn btn-ghost btn-sm" href="profile.html">Войти</a></div>
+    </nav>
+  </header>
+</div>
+
+<main class="container" style="padding:40px 0;">
+  <h1 data-reveal>Админ-панель</h1>
+
+  <div class="empty-state" id="admin-gate">
+    Этот раздел доступен только пользователям с ролью <strong>admin</strong>. Войдите под учётной записью администратора.
+  </div>
+
+  <div id="admin-app" class="hidden">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="tab-svc">Услуги</button>
+      <button class="tab-btn" data-tab="tab-book">Записи</button>
+      <button class="tab-btn" data-tab="tab-users">Пользователи</button>
+      <button class="tab-btn" data-tab="tab-mod">Отзывы</button>
+      <button class="tab-btn" data-tab="tab-stats">Статистика</button>
+    </div>
+
+    <section class="tab-panel active" id="tab-svc">
+      <div class="table-wrap" style="margin-bottom:30px;">
+        <table>
+          <thead><tr><th>Название</th><th>Категория</th><th>Цена</th><th>Длительность</th><th>Активна</th><th></th></tr></thead>
+          <tbody id="admin-services-body"></tbody>
+        </table>
+      </div>
+
+      <h3 id="svc-form-title">Добавить услугу</h3>
+      <form id="svc-form" class="form-grid" style="max-width:680px;">
+        <div class="field"><label>Название</label><input type="text" id="svc-name" required></div>
+        <div class="field">
+          <label>Категория</label>
+          <select id="svc-category" required>
+            <option value="Мойка кузова">Мойка кузова</option>
+            <option value="Химчистка салона">Химчистка салона</option>
+            <option value="Полировка и защита">Полировка и защита</option>
+            <option value="Шины и диски">Шины и диски</option>
+            <option value="Комплекс">Комплексные пакеты</option>
+          </select>
+        </div>
+        <div class="field full"><label>Описание</label><textarea id="svc-description" rows="2"></textarea></div>
+        <div class="field"><label>Цена, ₽</label><input type="number" id="svc-price" min="0" required></div>
+        <div class="field"><label>Длительность, мин</label><input type="number" id="svc-duration" min="10" value="30" required></div>
+        <div class="field full">
+          <label><input type="checkbox" id="svc-active" checked style="width:auto; margin-right:8px;">Услуга активна и видна в каталоге</label>
+        </div>
+        <div class="field full" style="display:flex; gap:10px;">
+          <button class="btn btn-primary" type="submit">Сохранить</button>
+          <button class="btn btn-ghost hidden" type="button" id="svc-cancel-edit">Отменить редактирование</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="tab-panel" id="tab-book">
+      <div class="controls" style="margin-top:0;">
+        <select id="booking-filter">
+          <option value="">Все статусы</option>
+          <option value="draft">В корзине</option>
+          <option value="confirmed">Подтверждено</option>
+          <option value="in_progress">В работе</option>
+          <option value="done">Завершено</option>
+          <option value="cancelled">Отменено</option>
+        </select>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Дата и время</th><th>Услуга</th><th>Машина</th><th>Цена</th><th>Статус</th></tr></thead>
+          <tbody id="admin-bookings-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="tab-users">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Имя</th><th>Email</th><th>Телефон</th><th>Роль</th></tr></thead>
+          <tbody id="admin-users-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="tab-mod">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Автор</th><th>Оценка</th><th>Текст</th><th></th></tr></thead>
+          <tbody id="admin-reviews-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="tab-stats">
+      <div id="stats-box" style="max-width:420px;"></div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer"><div class="container">БЛИК · учебный проект</div></footer>
+
+<script type="module">
+  import { initHeader } from "./js/header.js";
+  import { initAdminPage } from "./js/admin.js";
+  import { initReveal } from "./js/reveal.js";
+  initHeader();
+  initAdminPage();
+  initReveal();
+</script>
+</body>
+</html>

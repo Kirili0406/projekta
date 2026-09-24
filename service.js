@@ -1,14 +1,14 @@
 // ============================================================
 //  service.js — детальная страница услуги (service.html)
 // ============================================================
-import { db } from "./firebase-config.js";
+import { db } from "firebase-config.js";
 import {
   doc, getDoc, collection, query, where, orderBy, limit, startAfter, getDocs,
   onSnapshot, addDoc, serverTimestamp, updateDoc, increment
 } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
-import { fmtPrice, starString, escapeHtml, toast, buildKeywords } from "./ui.js";
-import { requireAuth, onRoleReady } from "./header.js";
-import { auth } from "./firebase-config.js";
+import { fmtPrice, starString, escapeHtml, toast, buildKeywords } from "ui.js";
+import { requireAuth, onRoleReady } from "header.js";
+import { auth } from "firebase-config.js";
 
 const params = new URLSearchParams(location.search);
 const serviceId = params.get("id");

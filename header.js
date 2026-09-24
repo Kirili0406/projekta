@@ -1,7 +1,4 @@
-// ============================================================
-//  header.js — общая шапка сайта + модалка авторизации
-//  Подключается на каждой странице: <div id="app-header"></div>
-// ============================================================
+
 import { auth, db } from "firebase-config.js";
 import {
   onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword,
@@ -10,7 +7,7 @@ import {
 import {
   doc, setDoc, getDoc, serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
-import { toast, openModal, closeModal, markActiveNav } from "./ui.js";
+import { toast, openModal, closeModal, markActiveNav } from "ui.js";
 
 const NAV_ITEMS = [
   { href: "index.html", label: "Каталог услуг" },

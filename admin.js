@@ -1,12 +1,12 @@
 // ============================================================
 //  admin.js — Админ-панель (admin.html), доступна только role === "admin"
 // ============================================================
-import { db, auth } from "./firebase-config.js";
+import { db, auth } from "firebase-config.js";
 import {
   collection, query, where, orderBy, onSnapshot, doc, addDoc, updateDoc, deleteDoc,
   getDoc, getDocs, getCountFromServer, serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
-import { fmtPrice, fmtDate, statusLabel, escapeHtml, toast, buildKeywords } from "./ui.js";
+import { fmtPrice, fmtDate, statusLabel, escapeHtml, toast, buildKeywords } from "ui.js";
 import { onRoleReady, currentRole } from "./header.js";
 
 let editingServiceId = null;

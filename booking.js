@@ -2,12 +2,12 @@
 //  booking.js — «Мои записи» (bookings.html)
 //  Активные действия: черновики (корзина), подтверждённые, в работе.
 // ============================================================
-import { db, auth } from "./firebase-config.js";
+import { db, auth } from "firebase-config.js";
 import {
   collection, query, where, orderBy, onSnapshot, doc, updateDoc, deleteDoc, serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
-import { fmtPrice, fmtDate, statusLabel, escapeHtml, toast } from "./ui.js";
-import { onRoleReady } from "./header.js";
+import { fmtPrice, fmtDate, statusLabel, escapeHtml, toast } from "ui.js";
+import { onRoleReady } from "header.js";
 
 let unsub = null;
 
